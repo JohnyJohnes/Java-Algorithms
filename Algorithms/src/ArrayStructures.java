@@ -88,6 +88,65 @@ public class ArrayStructures {
         return  indexWithValue;
     }
 
+    public void bubbleSort(){
+
+        for (int i = arraySize-1; i > 1; i--) {
+            for (int j = 0; j < i; j++) {
+                if (theArray[j]> theArray[j+1]){
+                    swapValues(j,j+1);
+                }
+            }
+        }
+
+    }
+
+    public void swapValues(int index1,int index2){
+        int temp = theArray[index1];
+        theArray[index1] = theArray[index2];
+        theArray[index2] = temp;
+    }
+
+
+    public void binarySearchForValue(int value){
+        int lowIndex = 0;
+        int highIndex = arraySize-1;
+        while (lowIndex<=highIndex){
+            int middleIndex = (lowIndex+highIndex)/2;
+            if (theArray[middleIndex]<value)
+                lowIndex = middleIndex+1;
+            else if (theArray[middleIndex]>value)
+                highIndex = middleIndex-1;
+            else{
+
+                System.out.println("Found at\t"+middleIndex);
+                lowIndex = highIndex+1;
+            }
+        }
+    }
+
+    public void selectionSort(){
+        for (int i = 0; i < arraySize; i++) {
+            int min = i;
+            for (int j = i; j < arraySize; j++) {
+                if(theArray[min]>theArray[j])
+                    min = j;
+            }
+            swapValues(i,min);
+        }
+    }
+
+    public void insertionSort(){
+        for (int i = 1; i < arraySize; i++) {
+            int j = i;
+            int toInsert = theArray[i];
+            while ((j>0)&&(theArray[j-1] > toInsert)){
+                theArray[j] = theArray[j-1];
+                j--;
+            }
+            theArray[j] = toInsert;
+        }
+    }
+
     public static void main(String[] args){
 
         ArrayStructures newArray = new ArrayStructures();
@@ -108,6 +167,16 @@ public class ArrayStructures {
 
         newArray.printArray();
         System.out.println(newArray.linearSearchForValue(11));
+
+//        newArray.bubbleSort();
+
+//        newArray.selectionSort();
+
+        newArray.insertionSort();
+
+        newArray.printArray();
+
+        newArray.binarySearchForValue(11  );
     }
 
 
