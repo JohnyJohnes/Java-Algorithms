@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkList;
 
 public class Link {
     private String name;
