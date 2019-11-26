@@ -23,7 +23,7 @@ public class HashFunction {
         for (int i = 0; i < stringForArray.length; i++) {
             String newElementVal = stringForArray[i];
 
-            int arrayIndex = Integer.parseInt(newElementVal)%29;
+            int arrayIndex = Integer.parseInt(newElementVal)%(arraySize-1);
 
             System.out.println("Modulus Index= " + arrayIndex + " for value " + newElementVal);
 
@@ -89,7 +89,7 @@ public class HashFunction {
     }
 
     public static void main(String[] args){
-        HashFunction hashFunction = new HashFunction(30);
+        HashFunction hashFunction = new HashFunction(60);
 
 
 //        String[] elementsToAdd = { "1", "5", "17", "21", "26" };
