@@ -39,6 +39,22 @@ public class HashFunction {
         }
     }
 
+    public String findKey(String key){
+
+        int arrayIndexHash= Integer.parseInt(key)%(arraySize-1);
+
+        while (theArray[arrayIndexHash] != "-1"){
+            if (theArray[arrayIndexHash] == key){
+
+                System.out.println(key + " was found in index " + arrayIndexHash);
+
+                return theArray[arrayIndexHash];
+            }
+            arrayIndexHash++;
+            arrayIndexHash %= arraySize;
+        }
+        return null;
+    }
 
     public void displayTheHashTable() {
 
@@ -103,5 +119,6 @@ public class HashFunction {
 
         hashFunction.hashFunction2(elementsToAdd2, hashFunction.theArray);
         hashFunction.displayTheHashTable();
+        hashFunction.findKey("660");
     }
 }
