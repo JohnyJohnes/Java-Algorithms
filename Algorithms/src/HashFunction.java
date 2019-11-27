@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class HashFunction {
@@ -75,6 +76,36 @@ public class HashFunction {
         while (!isPrime(++i));
 
         return i;
+    }
+
+    public void increaseArraySize(int minArraySize){
+        int newArraySize = getNextPrime(minArraySize);
+
+        moveOldArray(newArraySize);
+    }
+
+    public void moveOldArray(int newArraySize){
+        String[] cleanArray = removeEmptySpacesInArray(theArray);
+
+        theArray = new String[newArraySize];
+
+        arraySize = newArraySize;
+
+        Arrays.fill(theArray,"-1");
+
+        hashFunction2(cleanArray, theArray);
+    }
+
+    public String[] removeEmptySpacesInArray(String[] arrayToClean){
+        ArrayList<String> stringArrayList = new ArrayList<>();
+
+        for (String theString: arrayToClean){
+            if (!theString.equals("-1") && !theString.equals("")){
+                stringArrayList.add(theString);
+            }
+        }
+
+        return stringArrayList.toArray(new String[stringArrayList.size()]);
     }
 
     public void displayTheHashTable() {
