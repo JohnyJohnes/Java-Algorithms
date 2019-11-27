@@ -68,6 +68,15 @@ public class HashFunction {
 
     }
 
+    public int getNextPrime(int minNumToCheck){
+
+        int i=minNumToCheck-1;
+
+        while (!isPrime(++i));
+
+        return i;
+    }
+
     public void displayTheHashTable() {
 
         int increment = 0;
