@@ -40,6 +40,28 @@ public class HashFunction {
         }
     }
 
+    public void doubleHashFunction(String[] stringForArray, String[] theArray){
+        for (int i = 0; i < stringForArray.length; i++) {
+            String newElementVal = stringForArray[i];
+
+            int arrayIndex = Integer.parseInt(newElementVal)%(arraySize-1);
+
+            int stepDistance = 7 - (Integer.parseInt(newElementVal) % 7);
+
+            System.out.println("Modulus Index= " + arrayIndex + " for value " + newElementVal);
+
+
+            while (theArray[arrayIndex]!="-1"){
+                arrayIndex+=stepDistance;
+
+                System.out.println("Collision Try " + arrayIndex + " Instead");
+
+                arrayIndex %= arraySize;
+            }
+            theArray[arrayIndex] = newElementVal;
+        }
+    }
+
     public String findKey(String key){
 
         int arrayIndexHash= Integer.parseInt(key)%(arraySize-1);
