@@ -46,7 +46,7 @@ public class HashFunction {
 
             int arrayIndex = Integer.parseInt(newElementVal)%(arraySize-1);
 
-            int stepDistance = 7 - (Integer.parseInt(newElementVal) % 7);
+            int stepDistance = 7 - (Integer.parseInt(newElementVal) % 5);
 
             System.out.println("Modulus Index= " + arrayIndex + " for value " + newElementVal);
 
@@ -78,6 +78,26 @@ public class HashFunction {
         }
         return null;
     }
+
+    public String findKeyDoubleHash(String key){
+
+        int arrayIndexHash= Integer.parseInt(key)%(arraySize-1);
+
+        int stepDistance = 7 - (Integer.parseInt(key) % 5);
+
+        while (theArray[arrayIndexHash] != "-1"){
+            if (theArray[arrayIndexHash] == key){
+
+                System.out.println(key + " was found in index " + arrayIndexHash);
+
+                return theArray[arrayIndexHash];
+            }
+            arrayIndexHash+= stepDistance;
+            arrayIndexHash %= arraySize;
+        }
+        return null;
+    }
+
 
     public boolean isPrime(int number){
 
