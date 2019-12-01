@@ -14,5 +14,27 @@ public class WordList {
             previous = current;
             current = current.next;
         }
+
+        if (previous == null)
+            firstWord = newWord;
+        else
+            previous.next = newWord;
+
+        newWord.next = current;
+
     }
+
+    public void displayWordList(){
+
+        Word current = firstWord;
+
+        while (current != null){
+            System.out.println(current);
+            current = current.next;
+        }
+    }
+
+    
+
+
 }
