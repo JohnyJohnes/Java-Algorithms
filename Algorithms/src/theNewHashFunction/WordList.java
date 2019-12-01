@@ -34,10 +34,10 @@ public class WordList {
         }
     }
 
-    public Word find(int hashKey){
+    public Word find(int hashKey, String wordToFind){
         Word current = firstWord;
         while (current != null && current.key<=hashKey){
-            if (current.key == hashKey)
+            if (current.theWord.equals(wordToFind))
                 return current;
             else
                 current = current.next;

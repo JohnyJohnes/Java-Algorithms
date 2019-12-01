@@ -77,7 +77,7 @@ public class HashFunction3 {
     public Word find(String wordToFind){
 
         int hashKey = stringHashFunction(wordToFind);
-        Word theWord = theArray[hashKey].find(hashKey);
+        Word theWord = theArray[hashKey].find(hashKey, wordToFind);
 
         return theWord;
     }
