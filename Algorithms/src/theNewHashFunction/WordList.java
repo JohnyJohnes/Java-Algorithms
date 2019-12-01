@@ -34,7 +34,17 @@ public class WordList {
         }
     }
 
-    
+    public Word find(int hashKey){
+        Word current = firstWord;
+        while (current != null && current.key<=hashKey){
+            if (current.key == hashKey)
+                return current;
+            else
+                current = current.next;
+        }
+
+        return null;
+    }
 
 
 }
