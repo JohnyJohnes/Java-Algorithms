@@ -82,6 +82,12 @@ public class HashFunction3 {
         return theWord;
     }
 
+    public void displayTheArray(){
+        for (int i = 0; i < arraySize; i++) {
+            theArray[i].displayWordList();
+        }
+    }
+
     public int stringHashFunction(String wordToHash){
 
         int hashKeyValue = 0;
