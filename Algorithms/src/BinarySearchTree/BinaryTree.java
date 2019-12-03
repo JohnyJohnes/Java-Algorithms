@@ -35,6 +35,21 @@ public class BinaryTree {
         }
     }
 
+    public Node findNode(int key){
+        Node focusNode = root;
+        while (focusNode.key!=key){
+
+            if (key<focusNode.key)
+                focusNode = focusNode.leftChild;
+            else
+                focusNode = focusNode.rightChild;
+
+            if (focusNode == null)
+                return null;
+        }
+        return focusNode;
+    }
+
     public void inOrderTraverseTree(Node focusNode){
         if (focusNode!=null){
 
