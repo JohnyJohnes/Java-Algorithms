@@ -35,5 +35,17 @@ public class BinaryTree {
         }
     }
 
+    public void inOrderTraverseTree(Node focusNode){
+        if (focusNode!=null){
+
+            inOrderTraverseTree(focusNode.leftChild);
+
+            System.out.println(focusNode);
+
+            inOrderTraverseTree(focusNode.rightChild);
+
+        }
+    }
+
     public static void main(String[] args){}
 }
