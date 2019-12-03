@@ -47,5 +47,16 @@ public class BinaryTree {
         }
     }
 
+    public void preOrderTraverseTree(Node focusNode){
+        if (focusNode!=null){
+
+            System.out.println(focusNode);
+
+            preOrderTraverseTree(focusNode.leftChild);
+
+            preOrderTraverseTree(focusNode.rightChild);
+        }
+    }
+
     public static void main(String[] args){}
 }
