@@ -131,8 +131,17 @@ public class BinaryTree {
         }
 
         else {
-            //ToDo: implement solution for two childs(nodes) involved
+            Node replacementNode = getReplacementNode(focusNode); //Todo: implement this method
+            if (focusNode == root)
+                root = replacementNode;
+            else if (isItALeftChild)
+                parent.leftChild = replacementNode;
+            else
+                parent.rightChild = replacementNode;
+
+            replacementNode.leftChild = focusNode.leftChild;
         }
+        return true;
 
     }
 
